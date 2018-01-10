@@ -2,6 +2,7 @@
   "name": "school-plan",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://mrowa44.github.io/school-plan",
   "dependencies": {
     "axios": "^0.17.1",
     "normalize.css": "^7.0.0",
@@ -12,6 +13,7 @@
     "react-select": "^1.2.0"
   },
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "netguru-react-scripts": "1.3.0"
   },
   "scripts": {
@@ -21,6 +23,8 @@
     "eject": "react-scripts eject",
     "fix": "yarn run stylelint --fix && yarn run eslint --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "eslint": "eslint \"src/**/*.js\""
+    "eslint": "eslint \"src/**/*.js\"",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   }
 }
