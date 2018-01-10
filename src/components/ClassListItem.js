@@ -3,6 +3,21 @@ import React from 'react';
 import styles from './ClassListItem.scss';
 
 class ClassListItem extends React.Component {
+  formatGroupName() {
+    const name = this.props.group.replace(/Lekarski\/16\//, '');
+    return name;
+  }
+
+  formatLecturer() {
+    const name = this.props.lecturer.trim().split(' ');
+    const last = name[name.length - 1];
+    return last;
+  }
+
+  formatPlace() {
+    const name = this.props.place.replace(/bud\./, '');
+    return name;
+  }
   render() {
     const {
       comments,
@@ -19,34 +34,19 @@ class ClassListItem extends React.Component {
     return (
       <tr className={styles.row}>
         <td className={styles.item}>
-          <div>{startDate}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{endDate}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{duration}</div>
+          {startDate}-{endDate} ({duration})
         </td>
         <td className={styles.item}>
           <div>{subject}</div>
         </td>
         <td className={styles.item}>
-          <div>{form}</div>
+          <div>{this.formatGroupName()}</div>
         </td>
         <td className={styles.item}>
-          <div>{group}</div>
+          <div>{this.formatLecturer()}</div>
         </td>
         <td className={styles.item}>
-          <div>{lecturer}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{passing}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{place}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{comments}</div>
+          <div>{this.formatPlace()}</div>
         </td>
       </tr>
     );

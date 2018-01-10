@@ -12,16 +12,11 @@ class ClassList extends React.Component {
       <table>
         <thead>
           <tr>
-            <th>start</th>
-            <th>end</th>
-            <th>duration</th>
+            <th>time</th>
             <th>subject</th>
-            <th>form</th>
             <th>group</th>
             <th>lecturer</th>
-            <th>passing</th>
             <th>place</th>
-            <th>comments</th>
           </tr>
         </thead>
         <tbody>
