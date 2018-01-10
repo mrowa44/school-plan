@@ -2,6 +2,7 @@
   "name": "school-plan",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://mrowa44.github.io/school-plan/",
   "dependencies": {
     "axios": "^0.17.1",
     "normalize.css": "^7.0.0",
