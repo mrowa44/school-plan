@@ -5,7 +5,7 @@ import MainScreen from 'components/MainScreen';
 
 import styles from './style.scss';
 
-const API_PATH = 'https://school-plan-backend-lhujcwcvaw.now.sh/data';
+const API_PATH = 'https://school-plan-backend-pgybmfrbug.now.sh/data';
 // const API_PATH = 'http://localhost:3005/data';
 
 
