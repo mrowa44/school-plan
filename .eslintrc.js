@@ -21,5 +21,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       2, { extensions: ['.js'] },
     ],
+    'react/prefer-stateless-function': 0,
+    'jsx-a11y/no-distracting-elements': 0,
   },
 };
