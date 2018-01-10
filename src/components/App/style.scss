@@ -1,7 +1,12 @@
 @import '~shared/styles/index.scss';
 
+:global {
+  @import '~react-select/dist/react-select';
+}
+
 .app {
   text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .appLogo {
@@ -12,7 +17,7 @@
 }
 
 .appHeader {
-  height: 150px;
+  height: 60px;
   padding: 20px;
   color: $white;
   background: $brand-primary;

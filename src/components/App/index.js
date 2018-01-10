@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import logo from './logo.svg';
+import MainScreen from 'components/MainScreen';
+
 import styles from './style.scss';
 
 // const API_PATH = 'https://school-plan-backend-uxklvtebub.now.sh/data';
@@ -58,13 +59,15 @@ class App extends Component {
     return (
       <div className={styles.app}>
         <header className={styles.appHeader}>
-          <img src={logo} className={styles.appLogo} alt="logo" />
           <h1 className={styles.appTitle}>
             <marquee>
               XDDDDDDDDDDD
             </marquee>
           </h1>
         </header>
+        <main>
+          <MainScreen data={this.state.data} />
+        </main>
       </div>
     );
   }

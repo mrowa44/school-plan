@@ -1,0 +1,15 @@
+@import '~shared/styles/index';
+
+.wrapper {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.dropdowns {
+  display: flex;
+  margin: 30px auto;
+}
+
+.dropdown {
+  width: 200px;
+}
