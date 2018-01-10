@@ -1,0 +1,15 @@
+@import '~shared/styles/index';
+
+.table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+}
+
+.tableHeading {
+  border-bottom: 1px solid black;
+
+  th {
+    width: 100px;
+  }
+}
