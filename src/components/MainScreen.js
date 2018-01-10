@@ -6,17 +6,24 @@ import ClassList from 'components/ClassList';
 import styles from './MainScreen.scss';
 
 class MainScreen extends React.Component {
-  state = {
-    groupOne: null,
-    groupTwo: null,
+  constructor() {
+    super();
+    const one = localStorage.getItem('groupOne');
+    const two = localStorage.getItem('groupTwo');
+    this.state = {
+      groupOne: one ? { value: one, label: one } : null,
+      groupTwo: two ? { value: two, label: two } : null,
+    };
   }
 
   handleGroupOneChange = (option) => {
     this.setState({ groupOne: option });
+    localStorage.setItem('groupOne', option.value);
   }
 
   handleGroupTwoChange = (option) => {
     this.setState({ groupTwo: option });
+    localStorage.setItem('groupTwo', option.value);
   }
 
   render() {
