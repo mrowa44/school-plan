@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './ClassListItem.scss';
 
@@ -20,14 +21,8 @@ class ClassListItem extends React.Component {
   }
   render() {
     const {
-      comments,
       duration,
       endDate,
-      form,
-      group,
-      lecturer,
-      passing,
-      place,
       startDate,
       subject,
     } = this.props;
@@ -52,5 +47,15 @@ class ClassListItem extends React.Component {
     );
   }
 }
+
+ClassListItem.propTypes = {
+  duration: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  group: PropTypes.string.isRequired,
+  lecturer: PropTypes.string.isRequired,
+  place: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
+  subject: PropTypes.string.isRequired,
+};
 
 export default ClassListItem;

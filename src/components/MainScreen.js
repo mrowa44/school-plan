@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 
 import ClassList from 'components/ClassList';
@@ -30,7 +31,7 @@ class MainScreen extends React.Component {
     const { groupOne, groupTwo } = this.state;
     const valueOne = groupOne && groupOne.value;
     const valueTwo = groupTwo && groupTwo.value;
-    const groups = this.props.data.map((item) => ({
+    const groups = this.props.data.map(item => ({
       label: item.group,
       value: item.group,
     }));
@@ -58,5 +59,9 @@ class MainScreen extends React.Component {
     );
   }
 }
+
+MainScreen.propTypes = {
+  data: PropTypes.array.isRequired,
+};
 
 export default MainScreen;
