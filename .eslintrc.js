@@ -24,5 +24,6 @@ module.exports = {
     'react/prefer-stateless-function': 0,
     'jsx-a11y/no-distracting-elements': 0,
     'react/forbid-prop-types': 0,
+    'no-console': 0,
   },
 };

@@ -1,0 +1,6 @@
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+$tablet: 'screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})';
+$tablet-up: 'screen and (min-width: #{$tablet-width})';
+$desktop: 'screen and (min-width: #{$desktop-width})';

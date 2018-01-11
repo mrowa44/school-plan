@@ -39,11 +39,14 @@ class MainScreen extends React.Component {
     const valueOne = groupOne && groupOne.value;
     const valueTwo = groupTwo && groupTwo.value;
     const valueThree = groupThree && groupThree.value;
-    const groups = this.props.data.map(item => ({
-      label: item.group,
-      value: item.group,
-    }));
-
+    const { data } = this.props;
+    const groups = data.reduce((prev, classesArr) => {
+      const newGroups = classesArr.map(item => ({
+        value: item.group,
+        label: item.group,
+      }));
+      return [...prev, ...newGroups];
+    }, []);
     return (
       <div className={styles.wrapper}>
         <div className={styles.dropdowns}>
@@ -70,7 +73,7 @@ class MainScreen extends React.Component {
           />
         </div>
         <ClassList
-          data={this.props.data}
+          data={data}
           groupOne={valueOne}
           groupTwo={valueTwo}
           groupThree={valueThree}

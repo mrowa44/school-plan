@@ -5,19 +5,16 @@ import styles from './ClassListItem.scss';
 
 class ClassListItem extends React.Component {
   formatGroupName() {
-    const name = this.props.group.replace(/Lekarski\/16\//, '');
-    return name;
+    return this.props.group.replace(/Lekarski\/16\//, '');
   }
 
   formatLecturer() {
     const name = this.props.lecturer.trim().split(' ');
-    const last = name[name.length - 1];
-    return last;
+    return name[name.length - 1];
   }
 
   formatPlace() {
-    const name = this.props.place.replace(/bud\./, '');
-    return name;
+    return this.props.place.replace(/bud\./, '');
   }
   render() {
     const {
@@ -25,10 +22,12 @@ class ClassListItem extends React.Component {
       endDate,
       startDate,
       subject,
+      date,
     } = this.props;
     return (
       <tr className={styles.row}>
         <td className={styles.item}>
+          {date}<br />
           {startDate}-{endDate} ({duration})
         </td>
         <td className={styles.item}>
@@ -52,6 +51,7 @@ ClassListItem.propTypes = {
   duration: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   group: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   lecturer: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   startDate: PropTypes.string.isRequired,

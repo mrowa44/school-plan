@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import ClassListItem from 'components/ClassListItem';
+import ClassDay from 'components/ClassDay';
 
 import styles from './ClassList.scss';
 
 class ClassList extends React.Component {
   render() {
-    const { groupOne, groupTwo, groupThree, data } = this.props;
-    const classes = data.filter((item) => {
-      const group = item.group;
-      return group === groupOne || group === groupTwo || group === groupThree;
-    });
+    const { data, ...groups } = this.props;
 
     return (
       <table className={styles.table}>
@@ -25,7 +21,7 @@ class ClassList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {classes.map(item => <ClassListItem {...item} />)}
+          {data.map(day => <ClassDay classes={day} key={day[0].id} {...groups} />)}
         </tbody>
       </table>
     );
