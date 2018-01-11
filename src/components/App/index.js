@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import MainScreen from 'components/MainScreen';
+import Spinner from 'components/Spinner';
 
 import styles from './style.scss';
 
@@ -56,6 +57,7 @@ class App extends Component {
   }
 
   render() {
+    const data = this.state.data;
     return (
       <div className={styles.app}>
         <header className={styles.appHeader}>
@@ -66,7 +68,11 @@ class App extends Component {
           </h1>
         </header>
         <main>
-          <MainScreen data={this.state.data} />
+          {data.length === 0 ?
+            <Spinner />
+            :
+            <MainScreen data={data} />
+          }
         </main>
       </div>
     );
