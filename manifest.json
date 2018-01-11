@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "School plan",
+  "name": "School plan",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "192x192",
+      "sizes": "72x72 96x96 128x128 192x192 256x256",
       "type": "image/png"
     }
   ],
