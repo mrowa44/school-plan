@@ -11,26 +11,34 @@ class MainScreen extends React.Component {
     super();
     const one = localStorage.getItem('groupOne');
     const two = localStorage.getItem('groupTwo');
+    const three = localStorage.getItem('groupThree');
     this.state = {
-      groupOne: one ? { value: one, label: one } : null,
-      groupTwo: two ? { value: two, label: two } : null,
+      groupOne: { value: one, label: one },
+      groupTwo: { value: two, label: two },
+      groupThree: { value: three, label: three },
     };
   }
 
   handleGroupOneChange = (option) => {
     this.setState({ groupOne: option });
-    localStorage.setItem('groupOne', option.value);
+    localStorage.setItem('groupOne', option && option.value);
   }
 
   handleGroupTwoChange = (option) => {
     this.setState({ groupTwo: option });
-    localStorage.setItem('groupTwo', option.value);
+    localStorage.setItem('groupTwo', option && option.value);
+  }
+
+  handleGroupThreeChange = (option) => {
+    this.setState({ groupThree: option });
+    localStorage.setItem('groupThree', option && option.value);
   }
 
   render() {
-    const { groupOne, groupTwo } = this.state;
+    const { groupOne, groupTwo, groupThree } = this.state;
     const valueOne = groupOne && groupOne.value;
     const valueTwo = groupTwo && groupTwo.value;
+    const valueThree = groupThree && groupThree.value;
     const groups = this.props.data.map(item => ({
       label: item.group,
       value: item.group,
@@ -53,8 +61,20 @@ class MainScreen extends React.Component {
             className={styles.dropdown}
             options={groups}
           />
+          <Select
+            name="group-three"
+            value={valueThree}
+            onChange={this.handleGroupThreeChange}
+            className={styles.dropdown}
+            options={groups}
+          />
         </div>
-        <ClassList data={this.props.data} groupOne={valueOne} groupTwo={valueTwo} />
+        <ClassList
+          data={this.props.data}
+          groupOne={valueOne}
+          groupTwo={valueTwo}
+          groupThree={valueThree}
+        />
       </div>
     );
   }

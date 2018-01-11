@@ -7,8 +7,12 @@ import styles from './ClassList.scss';
 
 class ClassList extends React.Component {
   render() {
-    const { groupOne, groupTwo, data } = this.props;
-    const classes = data.filter(item => item.group === groupOne || item.group === groupTwo);
+    const { groupOne, groupTwo, groupThree, data } = this.props;
+    const classes = data.filter((item) => {
+      const group = item.group;
+      return group === groupOne || group === groupTwo || group === groupThree;
+    });
+
     return (
       <table className={styles.table}>
         <thead>
@@ -29,9 +33,16 @@ class ClassList extends React.Component {
 }
 
 ClassList.propTypes = {
-  groupOne: PropTypes.string.isRequired,
-  groupTwo: PropTypes.string.isRequired,
+  groupOne: PropTypes.string,
+  groupTwo: PropTypes.string,
+  groupThree: PropTypes.string,
   data: PropTypes.array.isRequired,
+};
+
+ClassList.defaultProps = {
+  groupOne: '',
+  groupTwo: '',
+  groupThree: '',
 };
 
 export default ClassList;
