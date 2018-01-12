@@ -1,11 +1,45 @@
 @import '~shared/styles/index';
 
-.row {
-  &:nth-of-type(2n) {
-    background: rgba(black, 0.03);
+.item {
+  display: flex;
+  padding: 30px 0;
+  flex-direction: column;
+
+  &:not(:last-of-type) {
+    border-bottom: 1px solid $color-divider;
   }
 }
 
-.item {
-  padding: 20px 0;
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.time {
+  width: 135px;
+  min-width: 135px;
+  margin-right: 5px;
+  font: $font-headline-1;
+}
+
+.subject {
+  font: $font-headline-1;
+  text-align: center;
+  text-align: left;
+  color: $text-color-light;
+  word-break: break-all;
+}
+
+.info {
+  padding: 30px 0 0;
+
+  &Row {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+  }
 }

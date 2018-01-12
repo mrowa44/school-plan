@@ -9,20 +9,20 @@
 
   font-family: $font;
   text-align: center;
+  background: $color-background;
 }
 
 .appLogo {
   @include circle(80px);
 
-  background: $white;
   animation: appLogoSpin infinite 20s linear;
 }
 
 .appHeader {
   height: 60px;
   padding: 20px;
-  color: $white;
-  background: $brand-primary;
+  color: $text-color-white;
+  background: $color-primary;
 }
 
 @keyframes appLogoSpin {

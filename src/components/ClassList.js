@@ -10,20 +10,11 @@ class ClassList extends React.Component {
     const { data, ...groups } = this.props;
 
     return (
-      <table className={styles.table}>
-        <thead>
-          <tr className={styles.tableHeading}>
-            <th>Time</th>
-            <th>Subject</th>
-            <th>Group</th>
-            <th>Lecturer</th>
-            <th>Place</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className={styles.tableWrapper}>
+        <div className={styles.table}>
           {data.map(day => <ClassDay classes={day} key={day[0].id} {...groups} />)}
-        </tbody>
-      </table>
+        </div>
+      </div>
     );
   }
 }

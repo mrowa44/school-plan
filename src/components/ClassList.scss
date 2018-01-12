@@ -1,8 +1,13 @@
 @import '~shared/styles/index';
 
+.tableWrapper {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
 .table {
   border-collapse: collapse;
-  width: 100%;
+  max-width: 100%;
   text-align: left;
 }
 

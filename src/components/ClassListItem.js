@@ -22,27 +22,32 @@ class ClassListItem extends React.Component {
       endDate,
       startDate,
       subject,
-      date,
     } = this.props;
     return (
-      <tr className={styles.row}>
-        <td className={styles.item}>
-          {date}<br />
-          {startDate}-{endDate} ({duration})
-        </td>
-        <td className={styles.item}>
-          <div>{subject}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{this.formatGroupName()}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{this.formatLecturer()}</div>
-        </td>
-        <td className={styles.item}>
-          <div>{this.formatPlace()}</div>
-        </td>
-      </tr>
+      <div className={styles.item}>
+        <div className={styles.row}>
+          <div className={styles.time}>{startDate} - {endDate}</div>
+          <div className={styles.subject}>{subject}</div>
+        </div>
+        <div className={styles.info}>
+          <div className={styles.infoRow}>
+            <div>📍 Place:</div>
+            <div>{this.formatPlace()}</div>
+          </div>
+          <div className={styles.infoRow}>
+            <div>👥 Group:</div>
+            <div>{this.formatGroupName()}</div>
+          </div>
+          <div className={styles.infoRow}>
+            <div>🗣 Lecturer:</div>
+            <div>{this.formatLecturer()}</div>
+          </div>
+          <div className={styles.infoRow}>
+            <div>⏳ Duration:</div>
+            <div>{duration}</div>
+          </div>
+        </div>
+      </div>
     );
   }
 }
@@ -51,7 +56,6 @@ ClassListItem.propTypes = {
   duration: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   group: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
   lecturer: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   startDate: PropTypes.string.isRequired,
