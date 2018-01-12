@@ -7,6 +7,10 @@
   border-radius: 3px;
   background: $color-background-2;
   box-shadow: 0 0px 22px rgba($color-black, 0.12);
+
+  @media #{$desktop} {
+    flex: 1;
+  }
 }
 
 .date {

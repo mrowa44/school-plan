@@ -23,6 +23,7 @@ ClassList.propTypes = {
   groupOne: PropTypes.string,
   groupTwo: PropTypes.string,
   groupThree: PropTypes.string,
+  groupFour: PropTypes.string,
   data: PropTypes.array.isRequired,
 };
 
@@ -30,6 +31,7 @@ ClassList.defaultProps = {
   groupOne: '',
   groupTwo: '',
   groupThree: '',
+  groupFour: '',
 };
 
 export default ClassList;

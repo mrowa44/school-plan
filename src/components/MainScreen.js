@@ -12,10 +12,12 @@ class MainScreen extends React.Component {
     const one = localStorage.getItem('groupOne');
     const two = localStorage.getItem('groupTwo');
     const three = localStorage.getItem('groupThree');
+    const four = localStorage.getItem('groupFour');
     this.state = {
       groupOne: { value: one, label: one },
       groupTwo: { value: two, label: two },
       groupThree: { value: three, label: three },
+      groupFour: { value: four, label: four },
     };
   }
 
@@ -34,11 +36,17 @@ class MainScreen extends React.Component {
     localStorage.setItem('groupThree', option && option.value);
   }
 
+  handleGroupFourChange = (option) => {
+    this.setState({ groupFour: option });
+    localStorage.setItem('groupFour', option && option.value);
+  }
+
   render() {
-    const { groupOne, groupTwo, groupThree } = this.state;
+    const { groupOne, groupTwo, groupThree, groupFour } = this.state;
     const valueOne = groupOne && groupOne.value;
     const valueTwo = groupTwo && groupTwo.value;
     const valueThree = groupThree && groupThree.value;
+    const valueFour = groupFour && groupFour.value;
     const { data } = this.props;
     const groups = data.reduce((prev, classesArr) => {
       const newGroups = classesArr.map(item => ({
@@ -71,12 +79,20 @@ class MainScreen extends React.Component {
             className={styles.dropdown}
             options={groups}
           />
+          <Select
+            name="group-four"
+            value={valueFour}
+            onChange={this.handleGroupFourChange}
+            className={styles.dropdown}
+            options={groups}
+          />
         </div>
         <ClassList
           data={data}
           groupOne={valueOne}
           groupTwo={valueTwo}
           groupThree={valueThree}
+          groupFour={valueFour}
         />
       </div>
     );

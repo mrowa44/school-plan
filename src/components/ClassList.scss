@@ -6,15 +6,10 @@
 }
 
 .table {
-  border-collapse: collapse;
   max-width: 100%;
   text-align: left;
-}
 
-.tableHeading {
-  border-bottom: 1px solid black;
-
-  th {
-    width: 100px;
+  @media #{$desktop} {
+    display: flex;
   }
 }

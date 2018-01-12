@@ -6,10 +6,15 @@ import ClassListItem from 'components/ClassListItem';
 
 import styles from './ClassDay.scss';
 
-function ClassDay({ classes, groupOne, groupTwo, groupThree }) {
+function ClassDay({ classes, groupOne, groupTwo, groupThree, groupFour }) {
   const filtered = classes.filter((item) => {
     const group = item && item.group;
-    return group === groupOne || group === groupTwo || group === groupThree;
+    return (
+      group === groupOne ||
+      group === groupTwo ||
+      group === groupThree ||
+      group === groupFour
+    );
   });
 
   if (filtered.length === 0) { return null; }
@@ -32,12 +37,14 @@ ClassDay.propTypes = {
   groupOne: PropTypes.string,
   groupTwo: PropTypes.string,
   groupThree: PropTypes.string,
+  groupFour: PropTypes.string,
 };
 
 ClassDay.defaultProps = {
   groupOne: null,
   groupTwo: null,
   groupThree: null,
+  groupFour: null,
 };
 
 export default ClassDay;
