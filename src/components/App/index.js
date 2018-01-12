@@ -22,13 +22,6 @@ class App extends Component {
     const data = this.state.data;
     return (
       <div className={styles.app}>
-        <header className={styles.appHeader}>
-          <h1 className={styles.appTitle}>
-            <marquee>
-              XDDDDDDDDDDD
-            </marquee>
-          </h1>
-        </header>
         <main>
           {data ?
             <MainScreen data={data} />
