@@ -31,20 +31,16 @@ class ClassListItem extends React.Component {
         </div>
         <div className={styles.info}>
           <div className={styles.infoRow}>
-            <div>📍 Place:</div>
-            <div>{this.formatPlace()}</div>
+            📍 {this.formatPlace()}
           </div>
           <div className={styles.infoRow}>
-            <div>👥 Group:</div>
-            <div>{this.formatGroupName()}</div>
+            👥 {this.formatGroupName()}
           </div>
           <div className={styles.infoRow}>
-            <div>🗣 Lecturer:</div>
-            <div>{this.formatLecturer()}</div>
+            🗣 {this.formatLecturer()}
           </div>
           <div className={styles.infoRow}>
-            <div>⏳ Duration:</div>
-            <div>{duration}</div>
+            ⏳ {duration}
           </div>
         </div>
       </div>

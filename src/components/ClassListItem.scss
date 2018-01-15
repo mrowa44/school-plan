@@ -30,13 +30,14 @@
 
 .info {
   padding: 15px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   &Row {
     display: flex;
     justify-content: space-between;
-
-    &:not(:last-of-type) {
-      margin-bottom: 10px;
-    }
+    width: 40%;
+    margin: 5px 5% 5px 0;
   }
 }
