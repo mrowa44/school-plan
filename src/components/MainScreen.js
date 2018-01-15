@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import uniqBy from 'lodash.uniqby';
 
 import ClassList from 'components/ClassList';
 
@@ -55,6 +56,8 @@ class MainScreen extends React.Component {
       }));
       return [...prev, ...newGroups];
     }, []);
+    const uniqGroups = uniqBy(groups, group => group.value);
+    const sortedGroups = uniqGroups.sort(group => group.value);
     return (
       <div className={styles.wrapper}>
         <div className={styles.dropdowns}>
@@ -63,28 +66,28 @@ class MainScreen extends React.Component {
             value={valueOne}
             onChange={this.handleGroupOneChange}
             className={styles.dropdown}
-            options={groups}
+            options={sortedGroups}
           />
           <Select
             name="group-two"
             value={valueTwo}
             onChange={this.handleGroupTwoChange}
             className={styles.dropdown}
-            options={groups}
+            options={sortedGroups}
           />
           <Select
             name="group-three"
             value={valueThree}
             onChange={this.handleGroupThreeChange}
             className={styles.dropdown}
-            options={groups}
+            options={sortedGroups}
           />
           <Select
             name="group-four"
             value={valueFour}
             onChange={this.handleGroupFourChange}
             className={styles.dropdown}
-            options={groups}
+            options={sortedGroups}
           />
         </div>
         <ClassList
