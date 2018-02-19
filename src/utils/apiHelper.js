@@ -2,6 +2,7 @@ import axios from 'axios';
 import compact from 'lodash.compact';
 
 const API_PATH = 'https://school-plan-backend.now.sh/data';
+const EXAM_REGEX = /exam/i;
 
 function getText(row) {
   return row && row.innerText;
@@ -10,6 +11,7 @@ function getText(row) {
 function createRowObject(tableRows) {
   const startDate = getText(tableRows[1]);
   if (!startDate) { return null; }
+  const comments = getText(tableRows[10]);
   return {
     startDate,
     endDate: getText(tableRows[2]),
@@ -20,7 +22,8 @@ function createRowObject(tableRows) {
     place: getText(tableRows[7]),
     lecturer: getText(tableRows[8]),
     passing: getText(tableRows[9]),
-    comments: getText(tableRows[10]),
+    comments,
+    isExam: EXAM_REGEX.test(comments),
     id: Math.ceil(Math.random() * 1000000), // oh god
   };
 }

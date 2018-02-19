@@ -2,11 +2,15 @@
 
 .item {
   display: flex;
-  padding: 15px 0;
+  padding: 15px;
   flex-direction: column;
 
   &:not(:last-of-type) {
     border-bottom: 1px solid $color-divider;
+  }
+
+  &Exam {
+    background: rgba($color-red, 0.1);
   }
 }
 
@@ -29,15 +33,15 @@
 }
 
 .info {
-  padding: 15px 0 0;
   display: flex;
+  padding: 15px 0 0;
   flex-wrap: wrap;
   justify-content: space-between;
 
   &Row {
     display: flex;
-    justify-content: space-between;
     width: 40%;
     margin: 5px 5% 5px 0;
+    justify-content: space-between;
   }
 }

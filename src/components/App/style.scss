@@ -3,7 +3,9 @@
 :global {
   @import '~react-select/dist/react-select';
 
-  html, body, #root {
+  html,
+  body,
+  #root {
     height: 100%;
   }
 }
@@ -11,9 +13,9 @@
 .app {
   $font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
+  min-height: 100%;
   font-family: $font;
   text-align: center;
-  background: $color-background;
   border-top: 10px solid $color-primary;
-  min-height: 100%;
+  background: $color-background;
 }

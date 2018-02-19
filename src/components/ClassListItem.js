@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import styles from './ClassListItem.scss';
 
@@ -17,14 +18,19 @@ class ClassListItem extends React.Component {
     return this.props.place.replace(/bud\./, '');
   }
   render() {
+    console.log('dupa', this.props);
     const {
       duration,
       endDate,
       startDate,
       subject,
+      isExam,
     } = this.props;
+    const className = cx(styles.item, {
+      [styles.itemExam]: isExam,
+    });
     return (
-      <div className={styles.item}>
+      <div className={className}>
         <div className={styles.row}>
           <div className={styles.time}>{startDate} - {endDate}</div>
           <div className={styles.subject}>{subject}</div>
@@ -52,6 +58,7 @@ ClassListItem.propTypes = {
   duration: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   group: PropTypes.string.isRequired,
+  isExam: PropTypes.bool.isRequired,
   lecturer: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
   startDate: PropTypes.string.isRequired,
