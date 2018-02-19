@@ -18,7 +18,6 @@ class ClassListItem extends React.Component {
     return this.props.place.replace(/bud\./, '');
   }
   render() {
-    console.log('dupa', this.props);
     const {
       duration,
       endDate,
