@@ -8,7 +8,7 @@ It may crash pretty easily as it's just fetching and parsing original html page 
 
 In case it does, that's what it looked like [*]:
 
-![screen](screen.png)
+<img src="screen.png" width="300" />
 
 
 
