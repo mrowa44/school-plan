@@ -9,6 +9,9 @@ It may crash pretty easily as it's just fetching and parsing original html page 
 In case it does, that's what it looked like [*]:
 
 <img src="screen.png" width="300" />
+<br />
+<br />
+<img src="screen-desktop.jpg" />
 
 
 
