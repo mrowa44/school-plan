@@ -1,0 +1,22 @@
+@import '~shared/styles/index';
+
+.wrapper {
+  margin: 20px 10px;
+  background: $color-background-gray;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px 20px;
+  border: 1px solid $color-divider;
+
+  @media #{$desktop} {
+    max-height: 20vh;
+  }
+}
+
+.item {
+  width: 250px;
+  text-align: left;
+  margin: 5px 10px;
+}

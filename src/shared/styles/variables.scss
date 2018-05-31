@@ -4,3 +4,5 @@ $desktop-width: 1024px;
 $tablet: 'screen and (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px})';
 $tablet-up: 'screen and (min-width: #{$tablet-width})';
 $desktop: 'screen and (min-width: #{$desktop-width})';
+
+$font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;

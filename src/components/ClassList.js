@@ -7,12 +7,14 @@ import styles from './ClassList.scss';
 
 class ClassList extends React.Component {
   render() {
-    const { data, ...groups } = this.props;
+    const { data, userGroups } = this.props;
 
     return (
       <div className={styles.tableWrapper}>
         <div className={styles.table}>
-          {data.map(day => <ClassDay classes={day} key={day[0].id} {...groups} />)}
+          {data.map(day => (
+            <ClassDay classes={day} key={day[0].id} userGroups={userGroups} />
+          ))}
         </div>
       </div>
     );
@@ -20,18 +22,8 @@ class ClassList extends React.Component {
 }
 
 ClassList.propTypes = {
-  groupOne: PropTypes.string,
-  groupTwo: PropTypes.string,
-  groupThree: PropTypes.string,
-  groupFour: PropTypes.string,
   data: PropTypes.array.isRequired,
-};
-
-ClassList.defaultProps = {
-  groupOne: '',
-  groupTwo: '',
-  groupThree: '',
-  groupFour: '',
+  userGroups: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default ClassList;

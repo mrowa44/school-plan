@@ -1,107 +1,63 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from 'react-select';
-import uniqBy from 'lodash.uniqby';
 
+import * as Storage from 'utils/localStorage';
 import ClassList from 'components/ClassList';
+import GroupsList from 'components/GroupsList';
+import Button from 'components/Button';
 
 import styles from './MainScreen.scss';
 
 class MainScreen extends React.Component {
-  constructor() {
-    super();
-    const one = localStorage.getItem('groupOne');
-    const two = localStorage.getItem('groupTwo');
-    const three = localStorage.getItem('groupThree');
-    const four = localStorage.getItem('groupFour');
-    this.state = {
-      groupOne: { value: one, label: one },
-      groupTwo: { value: two, label: two },
-      groupThree: { value: three, label: three },
-      groupFour: { value: four, label: four },
-    };
+  state = {
+    userGroups: Storage.getGroups(),
+    groupsSelectorShown: false,
   }
 
-  handleGroupOneChange = (option) => {
-    this.setState({ groupOne: option });
-    localStorage.setItem('groupOne', option && option.value);
+  get allGroups() {
+    return this.props.data.reduce((prev, classesArr) => {
+      const groups = classesArr.map(item => item.group.trim());
+      return [...new Set([...prev, ...groups])];
+    }, []).sort();
   }
 
-  handleGroupTwoChange = (option) => {
-    this.setState({ groupTwo: option });
-    localStorage.setItem('groupTwo', option && option.value);
+  handleTriggerUserGroups = () => {
+    this.setState({ userGroups: Storage.getGroups() });
   }
 
-  handleGroupThreeChange = (option) => {
-    this.setState({ groupThree: option });
-    localStorage.setItem('groupThree', option && option.value);
-  }
-
-  handleGroupFourChange = (option) => {
-    this.setState({ groupFour: option });
-    localStorage.setItem('groupFour', option && option.value);
+  handleShowGroupsSelector = () => {
+    this.setState(({ groupsSelectorShown }) => ({
+      groupsSelectorShown: !groupsSelectorShown,
+    }));
   }
 
   render() {
-    const {
-      groupOne,
-      groupTwo,
-      groupThree,
-      groupFour,
-    } = this.state;
-    const valueOne = groupOne && groupOne.value;
-    const valueTwo = groupTwo && groupTwo.value;
-    const valueThree = groupThree && groupThree.value;
-    const valueFour = groupFour && groupFour.value;
+    const { userGroups, groupsSelectorShown } = this.state;
     const { data } = this.props;
-    const groups = data.reduce((prev, classesArr) => {
-      const newGroups = classesArr.map(item => ({
-        value: item.group,
-        label: item.group,
-      }));
-      return [...prev, ...newGroups];
-    }, []);
-    const uniqGroups = uniqBy(groups, group => group.value);
-    const sortedGroups = uniqGroups.sort(group => group.value);
     return (
       <div className={styles.wrapper}>
-        <div className={styles.dropdowns}>
-          <Select
-            name="group-one"
-            value={valueOne}
-            onChange={this.handleGroupOneChange}
-            className={styles.dropdown}
-            options={sortedGroups}
+        <Button
+          className={styles.changeGroupsBtn}
+          onClick={this.handleShowGroupsSelector}
+        >
+          {groupsSelectorShown ? (
+            <span>
+              Hide groups list lol!
+            </span>
+          ) : (
+            <span>
+              Lemme change my groups lol!
+            </span>
+          )}
+        </Button>
+        {groupsSelectorShown && (
+          <GroupsList
+            allGroups={this.allGroups}
+            userGroups={userGroups}
+            onGroupsUpdate={this.handleTriggerUserGroups}
           />
-          <Select
-            name="group-two"
-            value={valueTwo}
-            onChange={this.handleGroupTwoChange}
-            className={styles.dropdown}
-            options={sortedGroups}
-          />
-          <Select
-            name="group-three"
-            value={valueThree}
-            onChange={this.handleGroupThreeChange}
-            className={styles.dropdown}
-            options={sortedGroups}
-          />
-          <Select
-            name="group-four"
-            value={valueFour}
-            onChange={this.handleGroupFourChange}
-            className={styles.dropdown}
-            options={sortedGroups}
-          />
-        </div>
-        <ClassList
-          data={data}
-          groupOne={valueOne}
-          groupTwo={valueTwo}
-          groupThree={valueThree}
-          groupFour={valueFour}
-        />
+        )}
+        <ClassList data={data} userGroups={userGroups} />
       </div>
     );
   }

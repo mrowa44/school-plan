@@ -8,20 +8,9 @@ import styles from './ClassDay.scss';
 
 function ClassDay({
   classes,
-  groupOne,
-  groupTwo,
-  groupThree,
-  groupFour,
+  userGroups,
 }) {
-  const filtered = classes.filter((item) => {
-    const group = item && item.group;
-    return (
-      group === groupOne ||
-      group === groupTwo ||
-      group === groupThree ||
-      group === groupFour
-    );
-  });
+  const filtered = classes.filter(item => userGroups.includes(item.group.trim()));
 
   if (filtered.length === 0) { return null; }
 
@@ -40,17 +29,7 @@ function ClassDay({
 
 ClassDay.propTypes = {
   classes: PropTypes.array.isRequired,
-  groupOne: PropTypes.string,
-  groupTwo: PropTypes.string,
-  groupThree: PropTypes.string,
-  groupFour: PropTypes.string,
-};
-
-ClassDay.defaultProps = {
-  groupOne: null,
-  groupTwo: null,
-  groupThree: null,
-  groupFour: null,
+  userGroups: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default ClassDay;

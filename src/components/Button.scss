@@ -1,0 +1,18 @@
+@import '~shared/styles/index';
+
+.button {
+  background: $color-primary;
+  font-family: $font;
+  border: 2px solid darken($color-primary, 5%);
+  padding: 10px 15px;
+  color: $text-color-white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: all 200ms ease-in;
+
+  &:hover {
+    box-shadow: 0 7px 22px rgba($color-black, 0.2);
+    opacity: 0.95;
+  }
+}

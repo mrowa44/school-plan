@@ -2,11 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 
+import { formatGroupName } from 'utils/helpers';
 import styles from './ClassListItem.scss';
 
 class ClassListItem extends React.Component {
   formatGroupName() {
-    return this.props.group.replace(/Lekarski\/16\//, '');
+    return formatGroupName(this.props.group);
   }
 
   formatLecturer() {
