@@ -6,7 +6,13 @@ import ClassListItem from 'components/ClassListItem';
 
 import styles from './ClassDay.scss';
 
-function ClassDay({ classes, groupOne, groupTwo, groupThree, groupFour }) {
+function ClassDay({
+  classes,
+  groupOne,
+  groupTwo,
+  groupThree,
+  groupFour,
+}) {
   const filtered = classes.filter((item) => {
     const group = item && item.group;
     return (
@@ -19,7 +25,7 @@ function ClassDay({ classes, groupOne, groupTwo, groupThree, groupFour }) {
 
   if (filtered.length === 0) { return null; }
 
-  const date = filtered[0].date;
+  const { date } = filtered[0];
   const prettyDate = moment(date, 'YYYY-MM-DD dddd').format('dddd D.MM.YY');
 
   return (

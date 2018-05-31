@@ -43,7 +43,12 @@ class MainScreen extends React.Component {
   }
 
   render() {
-    const { groupOne, groupTwo, groupThree, groupFour } = this.state;
+    const {
+      groupOne,
+      groupTwo,
+      groupThree,
+      groupFour,
+    } = this.state;
     const valueOne = groupOne && groupOne.value;
     const valueTwo = groupTwo && groupTwo.value;
     const valueThree = groupThree && groupThree.value;
