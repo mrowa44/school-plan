@@ -15,7 +15,8 @@ function ClassDay({
   if (filtered.length === 0) { return null; }
 
   const { date } = filtered[0];
-  const prettyDate = moment(date, 'YYYY-MM-DD dddd').format('dddd D.MM.YY');
+  const strippedDate = date.split(' ')[0];
+  const prettyDate = moment(strippedDate, 'YYYY-MM-DD dddd').format('dddd D.MM.YY');
 
   return (
     <div className={styles.classDay}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import 'moment/locale/pl';
 
 import { fetchData } from 'utils/apiHelper';
 import MainScreen from 'components/MainScreen';
