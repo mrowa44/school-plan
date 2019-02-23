@@ -6,6 +6,10 @@ import { formatGroupName } from 'utils/helpers';
 import styles from './ClassListItem.scss';
 
 class ClassListItem extends React.Component {
+  get place() {
+    return this.props.place.replace(/bud\./, '').trim();
+  }
+
   formatGroupName() {
     return formatGroupName(this.props.group);
   }
@@ -13,10 +17,6 @@ class ClassListItem extends React.Component {
   formatLecturer() {
     const name = this.props.lecturer.trim().split(' ');
     return name[name.length - 1];
-  }
-
-  get place() {
-    return this.props.place.replace(/bud\./, '').trim();
   }
 
   render() {
