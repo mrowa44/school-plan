@@ -1,23 +1,30 @@
 @import '~shared/styles/index';
 
 .classDay {
-  margin: 15px 10px 40px;
-  padding-top: 10px;
+  margin: 10px 5px 40px;
+  padding: 10px 10px 0;
   font: $font-body;
   border-radius: 3px;
   background: $color-background-2;
-  box-shadow: 0 0 22px rgba($color-black, 0.12);
+  border-radius: 5px;
+  border: 1px solid $color-divider;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   @media #{$desktop} {
     flex: 1;
     max-width: 20%;
+    margin: 10px 5px 0px;
   }
 }
 
 .date {
-  margin-bottom: 10px;
-  font: $font-headline-3;
-  text-align: center;
-  color: $text-color-black;
-  text-transform: capitalize;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  color: rgba(0,0,0,0.6);
+  text-transform: uppercase;
 }

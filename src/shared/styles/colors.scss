@@ -1,8 +1,9 @@
-$color-primary: #0cae64;
+// $color-primary: #0cae64;
+$color-primary: #3979e6;
 $color-white: #fff;
 $color-divider: #ccc;
 $color-black: #000;
-$color-red: #fe3c2f;
+$color-red: mix(#fe3c2f, black, 90%);
 $color-background: rgba($color-primary, 0.03);
 $color-background-2: rgba($color-white, 0.9);
 $color-background-gray: rgba($color-black, 0.07);
@@ -12,3 +13,5 @@ $color-divider: rgba($color-black, 0.2);
 $text-color-black: #232b33;
 $text-color-white: #fff;
 $text-color-light: rgba($text-color-black, 0.6);
+$text-main: #303A46;
+$text-secondary: mix($color-primary, black);

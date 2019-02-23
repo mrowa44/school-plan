@@ -15,9 +15,10 @@ class ClassListItem extends React.Component {
     return name[name.length - 1];
   }
 
-  formatPlace() {
-    return this.props.place.replace(/bud\./, '');
+  get place() {
+    return this.props.place.replace(/bud\./, '').trim();
   }
+
   render() {
     const {
       duration,
@@ -29,24 +30,36 @@ class ClassListItem extends React.Component {
     const className = cx(styles.item, {
       [styles.itemExam]: isExam,
     });
+    const classHours = duration[0];
+    const classMinutes = Number(duration.split('h')[1].replace('m', ''));
+    const classMinutesNum = classMinutes > 0 ? ` ${classMinutes}` : '';
+    const displayTime = `${classHours}h${classMinutesNum}`;
+
     return (
       <div className={className}>
-        <div className={styles.row}>
-          <div className={styles.time}>{startDate} - {endDate}</div>
-          <div className={styles.subject}>{subject}</div>
+        <div
+          className={styles.timeBox}
+          style={{
+            height: `${60 + (25 * classHours)}px`,
+          }}
+        >
+          <div>{startDate}</div>
+          <div>{endDate}</div>
         </div>
         <div className={styles.info}>
-          <div className={styles.infoRow}>
-            📍 {this.formatPlace()}
+          <div className={styles.subject}>
+            {subject} ({displayTime}) {isExam ? ' - Egazmin xD' : ''}
           </div>
-          <div className={styles.infoRow}>
-            👥 {this.formatGroupName()}
+          {this.place && (
+            <div className={styles.place}>
+              {this.place}
+            </div>
+          )}
+          <div className={styles.group}>
+            {this.formatGroupName()}
           </div>
-          <div className={styles.infoRow}>
-            🗣 {this.formatLecturer()}
-          </div>
-          <div className={styles.infoRow}>
-            ⏳ {duration}
+          <div className={styles.lecturer}>
+            {this.formatLecturer()}
           </div>
         </div>
       </div>

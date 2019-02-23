@@ -1,0 +1,36 @@
+@import '~shared/styles/index';
+
+.section {
+  margin-top: 15px;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  align-items: flex-start;
+}
+
+.groups {
+  flex: 1;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+
+  .list {
+    padding-inline-start: 20px;
+  }
+}
+
+.group {
+  font-size: 12px;
+  color: $text-color-light;
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+.changeGroupsBtn {
+  display: block;
+}

@@ -2,15 +2,19 @@
 
 .item {
   display: flex;
-  padding: 15px;
-  flex-direction: column;
-
-  &:not(:last-of-type) {
-    border-bottom: 1px solid $color-divider;
-  }
+  justify-content: space-between;
 
   &Exam {
-    background: rgba($color-red, 0.1);
+    .subject {
+      color: $color-red;
+    }
+  }
+
+  &:first-of-type {
+    .timeBox,
+    .info {
+      padding-top: 0;
+    }
   }
 }
 
@@ -20,29 +24,75 @@
   justify-content: space-between;
 }
 
-.time {
-  font: $font-headline-1;
+.timeBox {
+  width: 60px;
+  min-height: 70px;
+  font-size: 14px;
+  padding: 15px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid $color-divider;
+  color: $text-color-light;
+
+  &:first-child {
+    position: relative;
+  }
+
+  &:first-child::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: $color-background-2;
+    border: 2px solid $color-divider;
+    right: 0;
+    margin-right: -6px;
+    margin-top: 5px;
+  }
 }
 
 .subject {
-  font: $font-headline-1;
+  font-size: 14px;
+  font-weight: bold;
   text-align: center;
   text-align: left;
-  color: $text-color-light;
+  color: $text-main;
   word-break: break-word;
+  letter-spacing: 0.2px;
 }
 
 .info {
+  flex: 1;
   display: flex;
-  padding: 15px 0 0;
+  padding: 15px 0 0 10px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
 
   &Row {
     display: flex;
     width: 40%;
-    margin: 5px 5% 5px 0;
     justify-content: space-between;
     word-break: break-word;
   }
+}
+
+.place {
+  font-size: 12px;
+  color: $color-primary;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+}
+
+.group {
+  font-size: 12px;
+  color: $text-color-light;
+  letter-spacing: 0.3px;
+}
+
+.lecturer {
+  font-size: 12px;
+  font-weight: bold;
+  color: $text-color-light;
+  letter-spacing: 0.3px;
 }
