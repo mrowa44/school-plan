@@ -15,7 +15,7 @@ function ClassDay({
   if (filtered.length === 0) { return null; }
 
   const { date } = filtered[0];
-  const strippedDate = date.split(' ')[0];
+  const strippedDate = date.match(/\d{4}-\d{2}-\d{2}/)[0];
   const prettyDate = moment(strippedDate, 'YYYY-MM-DD dddd').format('dddd D.MM.YY');
 
   return (
