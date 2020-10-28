@@ -72,6 +72,7 @@ class ClassListItem extends React.Component {
 }
 
 ClassListItem.propTypes = {
+  comments: PropTypes.string.isRequired,
   duration: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   group: PropTypes.string.isRequired,
