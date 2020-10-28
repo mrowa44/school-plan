@@ -1,7 +1,7 @@
 import axios from 'axios';
 import compact from 'lodash.compact';
 
-const API_PATH = 'https://school-plan-backend.now.sh/data';
+const API_PATH = 'https://school-plan-backend.herokuapp.com/data';
 const EXAM_REGEX = /exam/i;
 
 function getText(row) {
