@@ -26,6 +26,7 @@ class ClassListItem extends React.Component {
       startDate,
       subject,
       isExam,
+      comments,
     } = this.props;
     const className = cx(styles.item, {
       [styles.itemExam]: isExam,
@@ -40,7 +41,7 @@ class ClassListItem extends React.Component {
         <div
           className={styles.timeBox}
           style={{
-            height: `${60 + (25 * classHours)}px`,
+            height: `${70 + (40 * classHours)}px`,
           }}
         >
           <div>{startDate}</div>
@@ -60,6 +61,9 @@ class ClassListItem extends React.Component {
           </div>
           <div className={styles.lecturer}>
             {this.formatLecturer()}
+          </div>
+          <div className={styles.comment}>
+            {comments}
           </div>
         </div>
       </div>
