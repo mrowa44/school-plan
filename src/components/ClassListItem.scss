@@ -10,6 +10,12 @@
     }
   }
 
+  &Cancelled {
+    .subject {
+      text-decoration: line-through;
+    }
+  }
+
   &:first-of-type {
     .timeBox,
     .info {

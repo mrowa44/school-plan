@@ -3,6 +3,7 @@ import compact from 'lodash.compact';
 
 const API_PATH = 'https://school-plan-backend.herokuapp.com/data';
 const EXAM_REGEX = /exam/i;
+const CANCELLED_REGEX = /canceled/i;
 
 function getText(row) {
   return row && row.innerText;
@@ -24,6 +25,7 @@ function createRowObject(tableRows) {
     passing: getText(tableRows[9]),
     comments,
     isExam: EXAM_REGEX.test(comments),
+    isCancelled: CANCELLED_REGEX.test(comments),
     id: Math.ceil(Math.random() * 1000000), // oh god
   };
 }

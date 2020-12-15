@@ -21,15 +21,17 @@ class ClassListItem extends React.Component {
 
   render() {
     const {
+      comments,
       duration,
       endDate,
+      isCancelled,
+      isExam,
       startDate,
       subject,
-      isExam,
-      comments,
     } = this.props;
     const className = cx(styles.item, {
       [styles.itemExam]: isExam,
+      [styles.itemCancelled]: isCancelled,
     });
     const classHours = duration[0];
     const classMinutes = Number(duration.split('h')[1].replace('m', ''));
@@ -76,6 +78,7 @@ ClassListItem.propTypes = {
   duration: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   group: PropTypes.string.isRequired,
+  isCancelled: PropTypes.bool.isRequired,
   isExam: PropTypes.bool.isRequired,
   lecturer: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
