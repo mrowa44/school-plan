@@ -14,6 +14,7 @@ function createRowObject(tableRows) {
   if (!startDate) { return null; }
   const comments = getText(tableRows[10]);
   return {
+    comments,
     startDate,
     endDate: getText(tableRows[2]),
     duration: getText(tableRows[3]),
@@ -23,7 +24,6 @@ function createRowObject(tableRows) {
     place: getText(tableRows[7]),
     lecturer: getText(tableRows[8]),
     passing: getText(tableRows[9]),
-    comments,
     isExam: EXAM_REGEX.test(comments),
     isCancelled: CANCELLED_REGEX.test(comments),
     id: Math.ceil(Math.random() * 1000000), // oh god

@@ -3,3 +3,9 @@
 @import './typography.scss';
 @import './mixins.scss';
 @import './variables.scss';
+
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(0.93) hue-rotate(180deg);
+  }
+}
