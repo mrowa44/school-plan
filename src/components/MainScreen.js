@@ -25,13 +25,14 @@ class MainScreen extends React.Component {
 
   render() {
     const { userGroups } = this.state;
-    const { data } = this.props;
+    const { data, isFreshDataFetched } = this.props;
     return (
       <div className={styles.wrapper}>
         <GroupsSection
           allGroups={this.allGroups}
           userGroups={userGroups}
           onUpdate={this.handleTriggerUserGroups}
+          isFreshDataFetched={isFreshDataFetched}
         />
         <ClassList data={data} userGroups={userGroups} />
       </div>
@@ -41,6 +42,7 @@ class MainScreen extends React.Component {
 
 MainScreen.propTypes = {
   data: PropTypes.array.isRequired,
+  isFreshDataFetched: PropTypes.bool.isRequired,
 };
 
 export default MainScreen;

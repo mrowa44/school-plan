@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import { formatGroupName } from 'utils/helpers';
 import Button from 'components/Button';
@@ -19,7 +20,7 @@ class GroupsSection extends React.Component {
 
   render() {
     const { groupsSelectorShown } = this.state;
-    const { userGroups } = this.props;
+    const { userGroups, isFreshDataFetched } = this.props;
     const currentGroups = userGroups.map(g => formatGroupName(g));
     return (
       <div className={styles.section}>
@@ -34,20 +35,26 @@ class GroupsSection extends React.Component {
               ))}
             </ul>
           </div>
-          <Button
-            className={styles.changeGroupsBtn}
-            onClick={this.handleShowGroupsSelector}
-          >
-            {groupsSelectorShown ? (
-              <span>
-                Zamknij xD
-              </span>
-            ) : (
-              <span>
-                Wybór grup
-              </span>
-            )}
-          </Button>
+          <div className={styles.topRight}>
+            <div className={cx(styles.statusDot, {
+              [styles.statusDotGreen]: isFreshDataFetched,
+            })}
+            />
+            <Button
+              className={styles.changeGroupsBtn}
+              onClick={this.handleShowGroupsSelector}
+            >
+              {groupsSelectorShown ? (
+                <span>
+                  Zamknij xD
+                </span>
+              ) : (
+                <span>
+                  Wybór grup
+                </span>
+              )}
+            </Button>
+          </div>
         </div>
         {groupsSelectorShown && (
           <GroupsList
@@ -63,6 +70,7 @@ class GroupsSection extends React.Component {
 
 GroupsSection.propTypes = {
   allGroups: PropTypes.array.isRequired,
+  isFreshDataFetched: PropTypes.bool.isRequired,
   onUpdate: PropTypes.func.isRequired,
   userGroups: PropTypes.array.isRequired,
 };

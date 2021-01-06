@@ -31,6 +31,24 @@
   letter-spacing: 0.5px;
 }
 
+.topRight {
+  display: flex;
+  align-items: center;
+}
+
+.statusDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: $color-yellow;
+  margin-right: 15px;
+
+  &Green {
+    background: $color-green;
+  }
+}
+
 .changeGroupsBtn {
   display: block;
+  min-width: 125px;
 }
