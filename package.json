@@ -26,7 +26,9 @@
     "fix": "yarn run stylelint --fix && yarn run eslint --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "eslint": "eslint \"src/**/*.js\"",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "predeploy-prod": "yarn build",
+    "deploy-prod": "gh-pages -d build",
+    "predeploy-staging": "yarn build",
+    "deploy-staging": "gh-pages -d build --remote staging"
   }
 }
