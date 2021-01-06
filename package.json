@@ -26,9 +26,9 @@
     "fix": "yarn run stylelint --fix && yarn run eslint --fix",
     "stylelint": "stylelint \"src/**/*.scss\"",
     "eslint": "eslint \"src/**/*.js\"",
-    "predeploy-prod": "yarn build",
+    "predeploy-prod": "rm -rf build/ && yarn build",
     "deploy-prod": "gh-pages -d build",
-    "predeploy-staging": "yarn build",
-    "deploy-staging": "gh-pages -d build --remote staging"
+    "predeploy-staging": "rm -rf build/ && yarn build",
+    "deploy-staging": "gh-pages -d build --remote staging --repo https://github.com/mrowa44/super-private-school-plan-version-omg"
   }
 }
