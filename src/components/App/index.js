@@ -13,7 +13,7 @@ class App extends Component {
   constructor() {
     super();
     const storedJSON = localStorage.getItem(STORAGE_KEY) || null;
-    const storedData = JSON.parse(storedJSON);
+    const storedData = storedJSON ? JSON.parse(storedJSON) : null;
     this.state = {
       data: storedData,
       isFreshDataFetched: false,
