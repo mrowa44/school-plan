@@ -16,7 +16,8 @@ class App extends Component {
     console.log('%c index', 'color: blue; font-weight: bold;', {
       storedJSON,
     });
-    const storedData = storedJSON ? JSON.parse(storedJSON) : null;
+    const isStoredDataValid = storedJSON && storedJSON !== 'undefined';
+    const storedData = isStoredDataValid ? JSON.parse(storedJSON) : null;
     this.state = {
       data: storedData,
       isFreshDataFetched: false,
@@ -27,7 +28,9 @@ class App extends Component {
     fetchData()
       .then((data) => {
         this.setState({ data, isFreshDataFetched: true });
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        if (data) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
       });
   }
 
