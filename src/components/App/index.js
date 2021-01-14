@@ -10,9 +10,14 @@ import styles from './style.scss';
 const STORAGE_KEY = 'planData';
 
 class App extends Component {
-  state = {
-    data: JSON.parse(localStorage.getItem(STORAGE_KEY)) || null,
-    isFreshDataFetched: false,
+  constructor() {
+    super();
+    const storedJSON = localStorage.getItem(STORAGE_KEY) || null;
+    const storedData = JSON.parse(storedJSON);
+    this.state = {
+      data: storedData,
+      isFreshDataFetched: false,
+    };
   }
 
   componentWillMount() {
