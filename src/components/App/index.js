@@ -12,7 +12,10 @@ const STORAGE_KEY = 'planData';
 class App extends Component {
   constructor() {
     super();
-    const storedJSON = localStorage.getItem(STORAGE_KEY) || null;
+    const storedJSON = localStorage.getItem(STORAGE_KEY);
+    console.log('%c index', 'color: blue; font-weight: bold;', {
+      storedJSON,
+    });
     const storedData = storedJSON ? JSON.parse(storedJSON) : null;
     this.state = {
       data: storedData,
