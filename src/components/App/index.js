@@ -13,9 +13,6 @@ class App extends Component {
   constructor() {
     super();
     const storedJSON = localStorage.getItem(STORAGE_KEY);
-    console.log('%c index', 'color: blue; font-weight: bold;', {
-      storedJSON,
-    });
     const isStoredDataValid = storedJSON && storedJSON !== 'undefined';
     const storedData = isStoredDataValid ? JSON.parse(storedJSON) : null;
     this.state = {
