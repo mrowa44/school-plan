@@ -2,8 +2,8 @@ import axios from 'axios';
 import compact from 'lodash.compact';
 
 const API_PATH = 'https://school-plan-backend.herokuapp.com/data';
-const EXAM_REGEX = /exam/i;
-const CANCELLED_REGEX = /canceled/i;
+const EXAM_REGEX = /exam|egzamin/i;
+const CANCELLED_REGEX = /canceled|cancelled/i;
 
 function getText(row) {
   return row && row.innerText;
