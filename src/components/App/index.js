@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import 'moment/locale/pl';
 
@@ -33,17 +34,18 @@ class App extends Component {
 
   render() {
     const { data, isFreshDataFetched } = this.state;
-    return (
-      <div className={styles.app}>
-        <main>
-          {data ?
-            <MainScreen data={data} isFreshDataFetched={isFreshDataFetched} />
-            :
-            <Spinner />
-          }
-        </main>
-      </div>
-    );
+    return null;
+    // return (
+    //   <div className={styles.app}>
+    //     <main>
+    //       {data ?
+    //         <MainScreen data={data} isFreshDataFetched={isFreshDataFetched} />
+    //         :
+    //         <Spinner />
+    //       }
+    //     </main>
+    //   </div>
+    // );
   }
 }
 
